@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.AddCreatureFragment">
+
+    <ImageView
+        android:id="@+id/creature_avatar_iv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:contentDescription="@string/creature_avatar"
+        android:src="@drawable/ic_add_circle_accent_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/creature_name_til"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginEnd="@dimen/_20dp"
+        android:hint="@string/creature_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/creature_avatar_iv">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/creature_name_tiet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/intelligence_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/intelligence"
+        app:layout_constraintStart_toStartOf="@id/creature_name_til"
+        app:layout_constraintTop_toBottomOf="@id/creature_name_til" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/intelligence_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/intelligence_tv"
+        app:layout_constraintEnd_toEndOf="@id/creature_name_til"
+        app:layout_constraintStart_toEndOf="@id/intelligence_tv"
+        app:layout_constraintTop_toBottomOf="@id/intelligence_tv" />
+
+    <TextView
+        android:id="@+id/strength_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/strength"
+        app:layout_constraintStart_toStartOf="@id/intelligence_tv"
+        app:layout_constraintTop_toBottomOf="@id/intelligence_tv" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/strength_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20dp"
+        app:layout_constraintBottom_toTopOf="@id/strength_tv"
+        app:layout_constraintEnd_toEndOf="@id/intelligence_spinner"
+        app:layout_constraintStart_toEndOf="@id/strength_tv"
+        app:layout_constraintTop_toBottomOf="@id/strength_tv" />
+
+    <TextView
+        android:id="@+id/endurance_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/endurance"
+        app:layout_constraintStart_toStartOf="@id/strength_tv"
+        app:layout_constraintTop_toBottomOf="@id/strength_tv" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/endurance_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20dp"
+        app:layout_constraintBottom_toTopOf="@id/endurance_tv"
+        app:layout_constraintEnd_toEndOf="@id/strength_spinner"
+        app:layout_constraintStart_toEndOf="@id/endurance_tv"
+        app:layout_constraintTop_toBottomOf="@id/endurance_tv" />
+
+    <TextView
+        android:id="@+id/hit_points_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/hit_points"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/endurance_spinner" />
+
+    <TextView
+        android:id="@+id/hit_points_value_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hit_points_tv" />
+
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_40dp"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

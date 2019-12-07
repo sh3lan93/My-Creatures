@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">My Creatures</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="creature_avatar">Creature Avatar</string>
+    <string name="creature_name">Creature name</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="strength">Strength</string>
+    <string name="endurance">Endurance</string>
+    <string name="hit_points">Hit Points</string>
+    <string name="save">Save</string>
+    <string name="save_creature_failed">All Inputs required</string>
+    <string name="your_creatures">Your Creatures</string>
+    <string name="add_new_creature">Add a new creature to you list</string>
+    <string-array name="intelligence_attributes">
+        <item>None: 0</item>
+        <item>Aristotle: 3</item>
+        <item>Newton: 7</item>
+        <item>Einstein: 10</item>
+    </string-array>
+
+    <string-array name="strength_attributes">
+        <item>None: 0</item>
+        <item>Thor: 3</item>
+        <item>Hulk: 7</item>
+        <item>Hercules: 10</item>
+    </string-array>
+
+    <string-array name="endurance_attributes">
+        <item>None: 0</item>
+        <item>Aluminum: 3</item>
+        <item>Gold: 7</item>
+        <item>Iron: 10</item>
+    </string-array>
+</resources>
