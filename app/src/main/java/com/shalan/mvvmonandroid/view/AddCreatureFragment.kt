@@ -13,12 +13,14 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 
 import com.shalan.mvvmonandroid.R
 import com.shalan.mvvmonandroid.common.CreatureAttributeType
+import com.shalan.mvvmonandroid.databinding.FragmentAddCreatureBinding
 import com.shalan.mvvmonandroid.viewmodel.AddCreatureViewModel
 import kotlinx.android.synthetic.main.fragment_add_creature.*
 
@@ -28,28 +30,23 @@ class AddCreatureFragment : Fragment() {
 
     private lateinit var addCreatureViewModel: AddCreatureViewModel
 
+    lateinit var binding: FragmentAddCreatureBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add_creature, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_creature, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addCreatureViewModel = ViewModelProviders.of(this).get(AddCreatureViewModel::class.java)
+        binding.addCreatureViewModel = addCreatureViewModel
 
         creature_avatar_iv.setOnClickListener {
             findNavController().navigate(R.id.action_addCreatureFragment_to_avatarListDialogFragment)
-        }
-
-        save_btn.setOnClickListener {
-            if (addCreatureViewModel.saveCreature()) {
-                findNavController().navigateUp()
-            } else {
-                Toast.makeText(context, getString(R.string.save_creature_failed), Toast.LENGTH_LONG)
-                    .show()
-            }
         }
 
         configureAttributesAdapter()
@@ -63,6 +60,13 @@ class AddCreatureFragment : Fragment() {
         configureSelectionOnStrength()
 
         configureSelectionOnEndurance()
+
+        addCreatureViewModel.getSaveCreatureLiveData().observe(this, Observer {
+            if (it)
+                findNavController().navigateUp()
+            else
+                Toast.makeText(context, getString(R.string.save_creature_failed), Toast.LENGTH_LONG).show()
+        })
     }
 
     private fun configureSelectionOnEndurance() {
